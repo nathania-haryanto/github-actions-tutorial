@@ -54,8 +54,10 @@ permissions:
 ## Run a container and configure the environment
 Running the container is the same as in the previous workflow,
 but this time you need to define the environment name and url.
-The url will be returned in the step `deployment` by `actions/deploy-pages@v1`. It is linked via id.
-Have a look at the id defined in the [deployment step](./github-pages-action-beta.md#deploy_to_github_pages)
+The url will be returned in the step `deployment` by `actions/deploy-pages@v1`:  
+`${{ steps.deployment.outputs.page_url }}`  
+ It is linked via id.
+Have a look at the id defined in the [deployment step](#deploy-to-github-pages).
 
 ```yml
 jobs:
@@ -95,13 +97,17 @@ The code below will create the build step inside the workflow.
 ```
 
 ## Setup Pages
-
+The action [actions/configure-pages@v2](https://github.com/actions/configure-pages)
+will enable GitHub pages and prepare the deployment.
 ```yml
       - name: Setup Pages
         uses: actions/configure-pages@v2
 ```
 
 ## Upload artifact
+The action [actions/upload-pages-artifact@v1](https://github.com/actions/upload-pages-artifact)
+will upload your files for the deployment. You need to define the path with your deployable application:   
+`path: './dist/github-actions-tutorial/'`
 
 ```yml
       - name: Upload artifact
@@ -112,15 +118,12 @@ The code below will create the build step inside the workflow.
 ```
 
 ## Deploy to GitHub Pages
-
+The action [actions/deploy-pages@v1](https://github.com/actions/deploy-pages) will deploy your application to GitHub Pages. After this step your application will be available.
 ```yml
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
 ```
-
-
-
 
 ## The workflow
 ```yml
