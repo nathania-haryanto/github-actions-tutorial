@@ -41,6 +41,8 @@ To check the permissions go to your repository &rarr; Settings &rarr; Actions &r
 The permissions should be set to `Read and write permissions`
 
 ## Configure the workflow permissions
+To deploy your application to GitHub Pages, the running Job needs to have some additional permissions. These can be defined as seen below ([Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs)).
+For more information, have a look at the [GITHUB_TOKEN default permissions](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
 
 ```yml
 permissions:
@@ -50,6 +52,10 @@ permissions:
 ```
 
 ## Run a container and configure the environment
+Running the container is the same as in the previous workflow,
+but this time you need to define the environment name and url.
+The url will be returned in the step `deployment` by `actions/deploy-pages@v1`. It is linked via id.
+Have a look at the id defined in the [deployment step](./github-pages-action-beta.md#deploy_to_github_pages)
 
 ```yml
 jobs:
