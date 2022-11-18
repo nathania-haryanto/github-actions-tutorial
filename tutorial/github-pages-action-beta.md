@@ -1,19 +1,31 @@
 # Deployment to Github Pages via action (Beta, without orphan branch)
 In this chapter you will learn how to build and automatically deploy your Angular application.
 
+## Enable GitHub Pages deployment via Action
+Go to your repository &rarr; Settings &rarr; Pages &rarr; Build and deployment.
+Select `GitHub Actions`, so it will be possible to deploy a page via GitHub Actions.
+## Setting up a token
+To enable the workflow to commit your built application to the `pages` branch, it needs the permissions to do so.
+
+### GITHUB_TOKEN
+For this you can use an automatically generated token called `GITHUB_TOKEN`.
+To check the permissions go to your repository &rarr; Settings &rarr; Actions &rarr; General &rarr; Workflow permissions  
+
+![](assets/workflow-permissions.png)  
+
+The permissions should be set to `Read and write permissions`
 ## Steps of the workflow
 For building your angular application and deploy it to GitHub pages, you need to follow these steps:
 1. Define an event (on push to master)
-2. Setting up a token
-3. Configure the workflow permissions
-4. Run a container and configure the environment
-5. Checkout the code
-6. Install Node.js
-7. Install dependencies
-8. Build the application
-9. Setup Pages
-10. Upload artifact
-11. Deploy to GitHub Pages
+2. Configure the workflow permissions
+3. Run a container and configure the environment
+4. Checkout the code
+5. Install Node.js
+6. Install dependencies
+7. Build the application
+8. Setup Pages
+9. Upload artifact
+10. Deploy to GitHub Pages
 
 ## Create the workflow
 Create a file named `deploy-on-push-to-master.yml`.
@@ -29,16 +41,6 @@ on:
     branches:
       - 'main'
 ```
-## Setting up a token
-To enable the workflow to commit your built application to the `pages` branch, it needs the permissions to do so.
-
-### GITHUB_TOKEN
-For this you can use an automatically generated token called `GITHUB_TOKEN`.
-To check the permissions go to your repository &rarr; Settings &rarr; Actions &rarr; General &rarr; Workflow permissions  
-
-![](assets/workflow-permissions.png)  
-
-The permissions should be set to `Read and write permissions`
 
 ## Configure the workflow permissions
 To deploy your application to GitHub Pages, the running Job needs to have some additional permissions. These can be defined as seen below ([Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs)).
