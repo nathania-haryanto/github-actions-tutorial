@@ -4,6 +4,7 @@ In this chapter you will learn how to build and automatically deploy your Angula
 ## Enable GitHub Pages deployment via Action
 Go to your repository &rarr; Settings &rarr; Pages &rarr; Build and deployment.
 Select `GitHub Actions`, so it will be possible to deploy a page via GitHub Actions.
+![](./assets/enable-pages-deployment-via-action.png)
 ## Setting up a token
 To enable the workflow to commit your built application to the `pages` branch, it needs the permissions to do so.
 
