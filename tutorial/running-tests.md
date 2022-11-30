@@ -82,11 +82,16 @@ Go to your repository &rarr; Settings &rarr; Branches &rarr; Branch protection r
 
 ![](assets/branch-protection.png)  
 
-You can protect all your branches by simply adding `*` as branch name pattern.
-By checking the option `Require status checks to pass before merging`, it will no longer be possible to merge pull requests
-without a successful workflow run.  
+You can protect all your branches by simply adding `*` (or another pattern) as branch name pattern.
+Then check the option `Require status checks to pass before merging`.
 
 ![](assets/add-branch-protection.png)
+
+After this you need to select which are the required status checks. You can add your workflow in the textbox below.
+It will no longer be possible to merge pull requests
+without a successful workflow run.  
+
+![](assets/define-required-status-checks.png)
 
 ## The workflow
 ```yml
