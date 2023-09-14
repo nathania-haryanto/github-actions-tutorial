@@ -1,0 +1,17 @@
+name: Test on push
+
+on:
+  push
+
+jobs:
+  setup:
+    name: '▶️ setup actions'
+    uses: ./.github/workflows/setup.yml
+
+  test:
+    name: '▶️ test actions'
+    runs-on: ubuntu-latest
+    needs: [setup]
+    steps:
+      - name: '🧫 Run tests'
+        run: npm run test --if-present
