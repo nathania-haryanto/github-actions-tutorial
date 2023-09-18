@@ -4,15 +4,13 @@ on:
   push
 
 jobs:
-  setup:
-    name: '▶️ setup actions'
-    uses: ./.github/workflows/setup.yml
-
   test:
     name: '▶️ test actions'
     runs-on: ubuntu-latest
     needs: [setup]
     steps:
+      - name: '▶️ setup actions'
+        uses: ./.github/workflows/setup.yml
       - name: 'Debug'
         run: |
           pwd
