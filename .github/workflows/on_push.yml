@@ -16,7 +16,15 @@ jobs:
         with:
           check-latest: true
 
+      - name: 'Cache dependencies'
+        uses: actions/cache@v3
+        id: cache-deps
+        with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
       - name: '⛓️ Install dependencies'
+        if: ${{ steps.cache-deps.outputs.cache-hit != 'true' }}
         run: npm ci --no-optional --no-audit --prefer-offline --progress=false
 
       - name: 'Debug'
