@@ -1,8 +1,13 @@
-name: 'Cache node_modules'
-description: 'Cache node_modules and install dependencies'
+name: 'Cache Dependencies'
+description: 'Set up Node.js, cache node_modules, and install dependencies'
 runs:
   using: "composite"
   steps:
+    - name: '⚙️ Use Node.js'
+      uses: actions/setup-node@v3
+      with:
+        check-latest: true
+
     - name: 'Cache dependencies'
       uses: actions/cache@v3
       id: cache-deps
