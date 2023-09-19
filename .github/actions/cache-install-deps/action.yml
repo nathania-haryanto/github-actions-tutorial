@@ -18,3 +18,4 @@ runs:
     - name: '⛓️ Install dependencies'
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: npm ci --no-optional --no-audit --prefer-offline --progress=false
+      shell: bash # this is required to use the run keyword. shell specifies which shell to use to run the command.
