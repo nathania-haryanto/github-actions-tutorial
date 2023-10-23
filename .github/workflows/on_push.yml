@@ -6,4 +6,4 @@ on:
 jobs:
   test:
     name: '▶️ test actions'
-    uses: nathania-haryanto/actions/.github/workflows/test.yml@v1
+    uses: nathania-haryanto/actions/.github/workflows/test.yml@main
