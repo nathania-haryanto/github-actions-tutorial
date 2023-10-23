@@ -8,15 +8,5 @@ jobs:
     name: '▶️ test actions'
     runs-on: ubuntu-latest
     steps:
-      - name: '☁️ Checkout repository'
-        uses: actions/checkout@v3
-
-      - name: 'Install dependencies'
-        uses: './.github/actions/cache-install-deps'
-
-      - name: 'Debug'
-        run: |
-          pwd
-          ls -la
-      - name: '🧫 Run tests'
-        run: npm run test --if-present
+      - name: 'Test workflow'
+        uses: nathania-haryanto/actions/.github/workflows/test
