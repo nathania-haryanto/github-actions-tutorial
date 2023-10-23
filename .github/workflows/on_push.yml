@@ -6,7 +6,4 @@ on:
 jobs:
   test:
     name: '▶️ test actions'
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Test workflow'
-        uses: nathania-haryanto/actions/.github/workflows/test.yml@v1
+    uses: nathania-haryanto/actions/.github/workflows/test.yml@v1
