@@ -1,0 +1,9 @@
+name: Test on push
+
+on:
+  push
+
+jobs:
+  test:
+    name: '▶️ test actions'
+    uses: nathania-haryanto/actions/.github/workflows/test.yml@main
